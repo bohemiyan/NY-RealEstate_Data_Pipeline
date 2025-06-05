@@ -13,9 +13,12 @@ import { firstValueFrom } from 'rxjs';
 
 @Injectable()
 export class DataSyncService {
-  private readonly logger = new Logger(DataSyncService.name);
-  private readonly downloadUrl = 'http://swcf.orpts.nv.gov/download/0122 CUR.ZIP';
-  private readonly tempDir = path.join(__dirname, '../../../temp');
+ private readonly logger = new Logger(DataSyncService.name);
+private readonly now = new Date();
+private readonly month = String(this.now.getMonth() + 1).padStart(2, '0');
+private readonly year = String(this.now.getFullYear()).slice(-2);
+private readonly downloadUrl = process.env.Governance_URL ? `${process.env.Governance_URL}/${this.month}${this.year}_CUR.ZIP` : 'http://swcf.orpts.nv.gov/download/0122_CUR.ZIP';
+private readonly tempDir = path.join(__dirname, '../../../temp');
 
   constructor(
     private httpService: HttpService,
