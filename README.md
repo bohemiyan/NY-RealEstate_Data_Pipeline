@@ -31,6 +31,7 @@ This project implements a data synchronization pipeline for New York State count
    DB_USERNAME=postgres
    DB_PASSWORD=postgres
    DB_NAME=real_estate_db
+   Governance_URL=http://swcf.orpts.nv.gov/download/0122_CUR.ZIP
    ```
 
 4. **Run the Application**
